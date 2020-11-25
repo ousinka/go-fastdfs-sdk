@@ -20,12 +20,28 @@
 	<!--发布者信息 -->
 	<developers>
 		<developer>
-			<name>sinka</name>
+			<name>ousinka</name>
 			<email>ousinka@foxmail.com</email>
 			<organization>http://brunnerit.com</organization>
 			<organizationUrl>http://brunnerit.com</organizationUrl>
 		</developer>
 	</developers>
+
+	<scm>
+		<url>https://github.com/ousinka/go-fastdfs-sdk.git</url>
+		<connection>scm:git:https://github.com/ousinka/go-fastdfs-sdk.git</connection>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>oss-sinka</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>oss-sinka</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+	</distributionManagement>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -117,6 +133,22 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
 </project>
